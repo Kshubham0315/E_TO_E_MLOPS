@@ -1,57 +1,158 @@
-capstone project
-==============================
+# 🚗 End-to-End MLOps Vehicle Insurance Pipeline
 
-this is the complete end to end mlops project for any project of aiml
+An industry-grade **MLOps project** that demonstrates the complete machine learning lifecycle — from data ingestion and model training to containerized deployment on **AWS EKS** with **CI/CD, DVC, MLflow, Prometheus, and Grafana** monitoring.
 
-Project Organization
-------------
+## ✨ Highlights
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+* 🔄 Automated ML pipeline using **DVC**
+* 📊 Experiment tracking with **MLflow + DagsHub**
+* 🐳 Containerized using **Docker**
+* ☁️ Deployed on **AWS EKS (Kubernetes)**
+* 🚀 CI/CD using **GitHub Actions**
+* 📈 Monitoring with **Prometheus & Grafana**
+* 🧪 Modular and production-ready codebase
+* 📦 S3-backed artifact storage
 
+---
 
---------
+## 🏗️ Architecture
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+```text
+Data Source → DVC Pipeline → MLflow Tracking → Model Registry
+        ↓
+   Docker Image → Amazon ECR → Amazon EKS
+        ↓
+ Prometheus Monitoring → Grafana Dashboards
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Category            | Tools                   |
+| ------------------- | ----------------------- |
+| Language            | Python                  |
+| ML                  | scikit-learn            |
+| Experiment Tracking | MLflow, DagsHub         |
+| Data Versioning     | DVC                     |
+| Containerization    | Docker                  |
+| Cloud               | AWS (S3, ECR, EKS, EC2) |
+| CI/CD               | GitHub Actions          |
+| Orchestration       | Kubernetes              |
+| Monitoring          | Prometheus, Grafana     |
+
+---
+
+## 📂 Project Structure
+
+```bash
+├── src/
+│   ├── data/
+│   ├── feature_engineering/
+│   ├── model/
+│   ├── evaluation/
+│   └── logger/
+├── flask_app/
+├── tests/
+├── scripts/
+├── dvc.yaml
+├── params.yaml
+├── requirements.txt
+└── .github/workflows/ci.yaml
+```
+
+---
+
+## ⚙️ Pipeline Stages
+
+1. Data Ingestion
+2. Data Preprocessing
+3. Feature Engineering
+4. Model Training
+5. Model Evaluation
+6. Model Registration
+7. Docker Image Build
+8. Push to Amazon ECR
+9. Deploy to Amazon EKS
+10. Monitor using Prometheus & Grafana
+
+---
+
+## 🚀 Local Setup
+
+```bash
+# Create environment
+conda create -n atlas python=3.10
+conda activate atlas
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run DVC pipeline
+dvc repro
+
+# Start application
+cd flask_app
+python app.py
+```
+
+---
+
+## 🐳 Docker
+
+```bash
+docker build -t vehicle-insurance-app:latest .
+docker run -p 5000:5000 vehicle-insurance-app:latest
+```
+
+---
+
+## ☁️ AWS Deployment
+
+* Amazon S3 for artifact storage
+* Amazon ECR for container registry
+* Amazon EKS for Kubernetes deployment
+* GitHub Actions for automated CI/CD
+
+---
+
+## 📈 Monitoring
+
+### Prometheus
+
+* Application metrics scraping
+* Kubernetes service monitoring
+
+### Grafana
+
+* Real-time dashboards
+* Infrastructure and application observability
+
+---
+
+## 📸 Dashboard Preview
+
+*Add screenshots of Grafana dashboards, MLflow experiments, and EKS deployment here.*
+
+---
+
+## 🎯 Key Learnings
+
+* Built a production-style MLOps workflow
+* Implemented reproducible ML pipelines with DVC
+* Tracked experiments using MLflow
+* Automated deployment with GitHub Actions
+* Deployed containers on Kubernetes (EKS)
+* Set up end-to-end monitoring and observability
+
+---
+
+## 👨‍💻 Author
+
+**Shubham Kumar**
+B.Tech IT (2028) • KIET Ghaziabad
+
+* LinkedIn: [www.linkedin.com/in/shubham-kumar-773a7b252](http://www.linkedin.com/in/shubham-kumar-773a7b252)
+* GitHub: https://github.com/your-username
+
+⭐ If you found this project useful, consider giving it a star!
