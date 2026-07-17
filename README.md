@@ -1,158 +1,326 @@
-# 🚗 End-to-End MLOps Vehicle Insurance Pipeline
+# 🚀 End-to-End MLOps for Sentiment Analysis | NLP | AWS | Docker | Kubernetes | CI/CD
 
-An industry-grade **MLOps project** that demonstrates the complete machine learning lifecycle — from data ingestion and model training to containerized deployment on **AWS EKS** with **CI/CD, DVC, MLflow, Prometheus, and Grafana** monitoring.
+A production-ready End-to-End MLOps project that automates the complete Machine Learning lifecycle for Sentiment Analysis using modern MLOps practices.
 
-## ✨ Highlights
-
-* 🔄 Automated ML pipeline using **DVC**
-* 📊 Experiment tracking with **MLflow + DagsHub**
-* 🐳 Containerized using **Docker**
-* ☁️ Deployed on **AWS EKS (Kubernetes)**
-* 🚀 CI/CD using **GitHub Actions**
-* 📈 Monitoring with **Prometheus & Grafana**
-* 🧪 Modular and production-ready codebase
-* 📦 S3-backed artifact storage
+The project demonstrates how an NLP model can be developed, versioned, containerized, deployed on Kubernetes, monitored using Prometheus & Grafana, and automated with CI/CD pipelines.
 
 ---
 
-## 🏗️ Architecture
+## 📌 Project Overview
 
-```text
-Data Source → DVC Pipeline → MLflow Tracking → Model Registry
-        ↓
-   Docker Image → Amazon ECR → Amazon EKS
-        ↓
- Prometheus Monitoring → Grafana Dashboards
+This project predicts the sentiment of a given text using an NLP pipeline and follows complete MLOps practices.
+
+The objective was to build a scalable, reproducible and production-ready ML system instead of just training a model.
+
+---
+
+# 🏗 Architecture
+
+```
+User
+   │
+   ▼
+Flask Web Application
+   │
+   ▼
+Text Preprocessing
+   │
+   ▼
+Vectorizer
+   │
+   ▼
+MLflow Registered Model
+   │
+Prediction
+   │
+   ▼
+Prometheus Metrics
+   │
+   ▼
+Grafana Dashboard
 ```
 
 ---
 
-## 🛠️ Tech Stack
+# 🚀 Tech Stack
 
-| Category            | Tools                   |
-| ------------------- | ----------------------- |
-| Language            | Python                  |
-| ML                  | scikit-learn            |
-| Experiment Tracking | MLflow, DagsHub         |
-| Data Versioning     | DVC                     |
-| Containerization    | Docker                  |
-| Cloud               | AWS (S3, ECR, EKS, EC2) |
-| CI/CD               | GitHub Actions          |
-| Orchestration       | Kubernetes              |
-| Monitoring          | Prometheus, Grafana     |
+### Programming
+
+- Python
+- Flask
+- Scikit-Learn
+- Pandas
+- NumPy
+- NLTK
+
+### MLOps
+
+- MLflow
+- DVC
+- DagsHub
+- GitHub Actions
+- Docker
+- Kubernetes (EKS)
+
+### Cloud
+
+- AWS EC2
+- AWS ECR
+- AWS EKS
+- AWS S3
+- IAM
+
+### Monitoring
+
+- Prometheus
+- Grafana
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
-```bash
-├── src/
-│   ├── data/
-│   ├── feature_engineering/
-│   ├── model/
-│   ├── evaluation/
-│   └── logger/
+```
+.
+├── artifact/
+├── data/
 ├── flask_app/
+│   ├── app.py
+│   ├── templates/
+│   ├── static/
+│   └── models/
+├── src/
+│   ├── data_ingestion.py
+│   ├── data_preprocessing.py
+│   ├── feature_engineering.py
+│   ├── model_building.py
+│   ├── model_evaluation.py
+│   └── register_model.py
 ├── tests/
 ├── scripts/
 ├── dvc.yaml
 ├── params.yaml
 ├── requirements.txt
-└── .github/workflows/ci.yaml
+└── README.md
 ```
 
 ---
 
-## ⚙️ Pipeline Stages
+# ⚙ Features
 
-1. Data Ingestion
-2. Data Preprocessing
-3. Feature Engineering
-4. Model Training
-5. Model Evaluation
-6. Model Registration
-7. Docker Image Build
-8. Push to Amazon ECR
-9. Deploy to Amazon EKS
-10. Monitor using Prometheus & Grafana
+✅ Automated NLP Pipeline
+
+✅ Text Cleaning
+
+✅ Stopword Removal
+
+✅ Lemmatization
+
+✅ Feature Engineering
+
+✅ Model Training
+
+✅ MLflow Experiment Tracking
+
+✅ Model Registry
+
+✅ DVC Pipeline
+
+✅ Dockerized Deployment
+
+✅ GitHub Actions CI/CD
+
+✅ AWS ECR
+
+✅ Kubernetes Deployment (Amazon EKS)
+
+✅ Prometheus Monitoring
+
+✅ Grafana Dashboard
 
 ---
 
-## 🚀 Local Setup
+# 📈 Monitoring
 
-```bash
-# Create environment
-conda create -n atlas python=3.10
-conda activate atlas
+The application exposes custom Prometheus metrics.
 
-# Install dependencies
-pip install -r requirements.txt
+- Total Requests
+- Request Latency
+- Prediction Count
+- Endpoint Monitoring
 
-# Run DVC pipeline
-dvc repro
+Metrics Endpoint
 
-# Start application
-cd flask_app
-python app.py
+```
+/metrics
 ```
 
 ---
 
-## 🐳 Docker
+# ☁ AWS Services Used
 
-```bash
-docker build -t vehicle-insurance-app:latest .
-docker run -p 5000:5000 vehicle-insurance-app:latest
+- Amazon EC2
+- Amazon ECR
+- Amazon EKS
+- Amazon S3
+- IAM
+
+---
+
+# 🔄 CI/CD Pipeline
+
+GitHub Push
+
+↓
+
+GitHub Actions
+
+↓
+
+Docker Build
+
+↓
+
+Push Image to Amazon ECR
+
+↓
+
+Deploy to Amazon EKS
+
+↓
+
+Application Live
+
+↓
+
+Prometheus Monitoring
+
+↓
+
+Grafana Dashboard
+
+---
+
+# 🧠 NLP Pipeline
+
+Input Text
+
+↓
+
+Lowercase
+
+↓
+
+Remove Stopwords
+
+↓
+
+Remove Numbers
+
+↓
+
+Remove URLs
+
+↓
+
+Remove Punctuations
+
+↓
+
+Lemmatization
+
+↓
+
+Vectorization
+
+↓
+
+Prediction
+
+---
+
+# 📊 Model Management
+
+- MLflow Experiment Tracking
+- Model Registry
+- Version Control
+- Reproducible Pipeline
+
+---
+
+# 🐳 Docker
+
+```
+docker build -t sentiment-app .
+docker run -p 5000:5000 sentiment-app
 ```
 
 ---
 
-## ☁️ AWS Deployment
+# ☸ Kubernetes
 
-* Amazon S3 for artifact storage
-* Amazon ECR for container registry
-* Amazon EKS for Kubernetes deployment
-* GitHub Actions for automated CI/CD
-
----
-
-## 📈 Monitoring
-
-### Prometheus
-
-* Application metrics scraping
-* Kubernetes service monitoring
-
-### Grafana
-
-* Real-time dashboards
-* Infrastructure and application observability
+```
+kubectl apply -f deployment.yaml
+kubectl get pods
+kubectl get svc
+```
 
 ---
 
-## 📸 Dashboard Preview
+# 📸 Screenshots
 
-*Add screenshots of Grafana dashboards, MLflow experiments, and EKS deployment here.*
+- MLflow Experiments
+- DagsHub
+- Flask UI
+- Docker
+- Kubernetes
+- AWS EKS
+- Prometheus
+- Grafana
 
 ---
 
-## 🎯 Key Learnings
+# 🎯 Learning Outcomes
 
-* Built a production-style MLOps workflow
-* Implemented reproducible ML pipelines with DVC
-* Tracked experiments using MLflow
-* Automated deployment with GitHub Actions
-* Deployed containers on Kubernetes (EKS)
-* Set up end-to-end monitoring and observability
+✔ End-to-End MLOps
+
+✔ CI/CD Automation
+
+✔ AWS Deployment
+
+✔ Model Versioning
+
+✔ Monitoring
+
+✔ Production Ready Deployment
+
+✔ NLP Pipeline
+
+✔ Kubernetes Deployment
+
+---
+
+# ⭐ Future Improvements
+
+- FastAPI
+- Auto Retraining
+- Drift Detection
+- Airflow Scheduling
+- Terraform
+- ArgoCD
+- Helm Charts
 
 ---
 
 ## 👨‍💻 Author
 
 **Shubham Kumar**
-B.Tech IT (2028) • KIET Ghaziabad
 
-* LinkedIn: [www.linkedin.com/in/shubham-kumar-773a7b252](http://www.linkedin.com/in/shubham-kumar-773a7b252)
-* GitHub: https://github.com/your-username
+B.Tech CSE | KIET Ghaziabad
 
-⭐ If you found this project useful, consider giving it a star!
+Interested in
+
+- MLOps
+- Machine Learning
+- Cloud
+- DevOps
+- AI Engineering
