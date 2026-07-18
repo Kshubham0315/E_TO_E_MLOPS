@@ -112,13 +112,27 @@ PREDICTION_COUNT = Counter(
 
 # ------------------------------------------------------------------------------------------
 # Model and vectorizer setup
-model_name = "my_model"
+model_name = "my_model_1"
+# def get_latest_model_version(model_name):
+#     client = mlflow.MlflowClient()
+#     latest_version = client.get_latest_versions(model_name, stages=["Production"])
+#     if not latest_version:
+#         latest_version = client.get_latest_versions(model_name, stages=["None"])
+#     return latest_version[0].version if latest_version else None
+
+from mlflow import MlflowClient
+
 def get_latest_model_version(model_name):
-    client = mlflow.MlflowClient()
-    latest_version = client.get_latest_versions(model_name, stages=["Production"])
-    if not latest_version:
-        latest_version = client.get_latest_versions(model_name, stages=["None"])
-    return latest_version[0].version if latest_version else None
+    client = MlflowClient()
+    versions = client.search_model_versions(f"name='{model_name}'")
+
+    if not versions:
+        return None
+
+    # Latest version number
+    latest = max(versions, key=lambda v: int(v.version))
+    print(f"Found model version: {latest.version}")
+    return latest.version
 
 model_version = get_latest_model_version(model_name)
 model_uri = f'models:/{model_name}/{model_version}'
