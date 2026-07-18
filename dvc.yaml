@@ -33,7 +33,7 @@ stages:
       - data/processed
       - src/model/model_building.py
     outs:
-      - models/model.pkl
+      - models/model_1.pkl
 
   model_evaluation:
     cmd: python -m src.model.model_evaluation
