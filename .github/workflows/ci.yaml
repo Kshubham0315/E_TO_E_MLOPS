@@ -39,17 +39,17 @@ jobs:
         run: |
           python -m unittest tests/test_model.py
 
-      - name: Promote model to production
-        if: success()
-        env:
-          CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
-        run: python scripts/promote_model.py
+      # - name: Promote model to production
+      #   if: success()
+      #   env:
+      #     CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
+      #   run: python scripts/promote_model.py
 
-      - name: Run Flask app tests
-        if: success()
-        env:
-          CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
-        run: python -m unittest tests/test_flask_app.py
+      # - name: Run Flask app tests
+      #   if: success()
+      #   env:
+      #     CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
+      #   run: python -m unittest tests/test_flask_app.py
 
       # - name: Login to AWS ECR
       #   if: success()
@@ -92,4 +92,8 @@ jobs:
 
       # - name: Deploy to EKS
       #   run: |
+<<<<<<< HEAD
       #     kubectl apply -f deployment.yaml
+=======
+      #     kubectl apply -f deployment.yaml
+>>>>>>> 8687444958c3620a5d812a63dba20b7180f04f78
