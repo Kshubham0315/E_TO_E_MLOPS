@@ -112,39 +112,51 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
 
 def main():
     mlflow.set_experiment("my-dvc-pipeline")
-    with mlflow.start_run() as run:  # Start an MLflow run
+
+    with mlflow.start_run() as run:
         try:
-            clf = load_model('./models/model.pkl')
+            clf = load_model('./models/model_1.pkl')
             test_data = load_data('./data/processed/test_bow.csv')
-            
+
             X_test = test_data.iloc[:, :-1].values
             y_test = test_data.iloc[:, -1].values
 
             metrics = evaluate_model(clf, X_test, y_test)
-            
+
             save_metrics(metrics, 'reports/metrics.json')
-            
-            # Log metrics to MLflow
+
+            # Log metrics
             for metric_name, metric_value in metrics.items():
                 mlflow.log_metric(metric_name, metric_value)
-            
-            # Log model parameters to MLflow
+
+            # Log parameters
             if hasattr(clf, 'get_params'):
                 params = clf.get_params()
                 for param_name, param_value in params.items():
                     mlflow.log_param(param_name, param_value)
-            
-            # Log model to MLflow
-            mlflow.sklearn.log_model(clf, "models")
-            
-            # Save model info
-            save_model_info(run.info.run_id, "models", 'reports/experiment_info.json')
-            
-            # Log the metrics file to MLflow
-            mlflow.log_artifact('reports/metrics.json')
+
+            # Log model
+            model_info = mlflow.sklearn.log_model(
+                sk_model=clf,
+                name="models"
+            )
+
+            # Save model information
+            model_info_dict = {
+                "model_uri": model_info.model_uri
+            }
+
+            with open("reports/experiment_info.json", "w") as f:
+                json.dump(model_info_dict, f, indent=4)
+
+            # Log metrics artifact
+            mlflow.log_artifact("reports/metrics.json")
+
+            print("Model logged successfully!")
+            print(model_info.model_uri)
 
         except Exception as e:
-            logging.error('Failed to complete the model evaluation process: %s', e)
+            logging.error("Failed to complete the model evaluation process: %s", e)
             print(f"Error: {e}")
 
 if __name__ == '__main__':

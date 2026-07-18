@@ -1,57 +1,326 @@
-capstone project
-==============================
+# 🚀 End-to-End MLOps for Sentiment Analysis | NLP | AWS | Docker | Kubernetes | CI/CD
 
-this is the complete end to end mlops project for any project of aiml
+A production-ready End-to-End MLOps project that automates the complete Machine Learning lifecycle for Sentiment Analysis using modern MLOps practices.
 
-Project Organization
-------------
+The project demonstrates how an NLP model can be developed, versioned, containerized, deployed on Kubernetes, monitored using Prometheus & Grafana, and automated with CI/CD pipelines.
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+---
 
+## 📌 Project Overview
 
---------
+This project predicts the sentiment of a given text using an NLP pipeline and follows complete MLOps practices.
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+The objective was to build a scalable, reproducible and production-ready ML system instead of just training a model.
+
+---
+
+# 🏗 Architecture
+
+```
+User
+   │
+   ▼
+Flask Web Application
+   │
+   ▼
+Text Preprocessing
+   │
+   ▼
+Vectorizer
+   │
+   ▼
+MLflow Registered Model
+   │
+Prediction
+   │
+   ▼
+Prometheus Metrics
+   │
+   ▼
+Grafana Dashboard
+```
+
+---
+
+# 🚀 Tech Stack
+
+### Programming
+
+- Python
+- Flask
+- Scikit-Learn
+- Pandas
+- NumPy
+- NLTK
+
+### MLOps
+
+- MLflow
+- DVC
+- DagsHub
+- GitHub Actions
+- Docker
+- Kubernetes (EKS)
+
+### Cloud
+
+- AWS EC2
+- AWS ECR
+- AWS EKS
+- AWS S3
+- IAM
+
+### Monitoring
+
+- Prometheus
+- Grafana
+
+---
+
+# 📂 Project Structure
+
+```
+.
+├── artifact/
+├── data/
+├── flask_app/
+│   ├── app.py
+│   ├── templates/
+│   ├── static/
+│   └── models/
+├── src/
+│   ├── data_ingestion.py
+│   ├── data_preprocessing.py
+│   ├── feature_engineering.py
+│   ├── model_building.py
+│   ├── model_evaluation.py
+│   └── register_model.py
+├── tests/
+├── scripts/
+├── dvc.yaml
+├── params.yaml
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# ⚙ Features
+
+✅ Automated NLP Pipeline
+
+✅ Text Cleaning
+
+✅ Stopword Removal
+
+✅ Lemmatization
+
+✅ Feature Engineering
+
+✅ Model Training
+
+✅ MLflow Experiment Tracking
+
+✅ Model Registry
+
+✅ DVC Pipeline
+
+✅ Dockerized Deployment
+
+✅ GitHub Actions CI/CD
+
+✅ AWS ECR
+
+✅ Kubernetes Deployment (Amazon EKS)
+
+✅ Prometheus Monitoring
+
+✅ Grafana Dashboard
+
+---
+
+# 📈 Monitoring
+
+The application exposes custom Prometheus metrics.
+
+- Total Requests
+- Request Latency
+- Prediction Count
+- Endpoint Monitoring
+
+Metrics Endpoint
+
+```
+/metrics
+```
+
+---
+
+# ☁ AWS Services Used
+
+- Amazon EC2
+- Amazon ECR
+- Amazon EKS
+- Amazon S3
+- IAM
+
+---
+
+# 🔄 CI/CD Pipeline
+
+GitHub Push
+
+↓
+
+GitHub Actions
+
+↓
+
+Docker Build
+
+↓
+
+Push Image to Amazon ECR
+
+↓
+
+Deploy to Amazon EKS
+
+↓
+
+Application Live
+
+↓
+
+Prometheus Monitoring
+
+↓
+
+Grafana Dashboard
+
+---
+
+# 🧠 NLP Pipeline
+
+Input Text
+
+↓
+
+Lowercase
+
+↓
+
+Remove Stopwords
+
+↓
+
+Remove Numbers
+
+↓
+
+Remove URLs
+
+↓
+
+Remove Punctuations
+
+↓
+
+Lemmatization
+
+↓
+
+Vectorization
+
+↓
+
+Prediction
+
+---
+
+# 📊 Model Management
+
+- MLflow Experiment Tracking
+- Model Registry
+- Version Control
+- Reproducible Pipeline
+
+---
+
+# 🐳 Docker
+
+```
+docker build -t sentiment-app .
+docker run -p 5000:5000 sentiment-app
+```
+
+---
+
+# ☸ Kubernetes
+
+```
+kubectl apply -f deployment.yaml
+kubectl get pods
+kubectl get svc
+```
+
+---
+
+# 📸 Screenshots
+
+- MLflow Experiments
+- DagsHub
+- Flask UI
+- Docker
+- Kubernetes
+- AWS EKS
+- Prometheus
+- Grafana
+
+---
+
+# 🎯 Learning Outcomes
+
+✔ End-to-End MLOps
+
+✔ CI/CD Automation
+
+✔ AWS Deployment
+
+✔ Model Versioning
+
+✔ Monitoring
+
+✔ Production Ready Deployment
+
+✔ NLP Pipeline
+
+✔ Kubernetes Deployment
+
+---
+
+# ⭐ Future Improvements
+
+- FastAPI
+- Auto Retraining
+- Drift Detection
+- Airflow Scheduling
+- Terraform
+- ArgoCD
+- Helm Charts
+
+---
+
+## 👨‍💻 Author
+
+**Shubham Kumar**
+
+B.Tech CSE | KIET Ghaziabad
+
+Interested in
+
+- MLOps
+- Machine Learning
+- Cloud
+- DevOps
+- AI Engineering
