@@ -38,7 +38,7 @@ stages:
   model_evaluation:
     cmd: python -m src.model.model_evaluation
     deps:
-      - models/model.pkl
+      - models/model_1.pkl
       - src/model/model_evaluation.py
     metrics:
       - reports/metrics.json
