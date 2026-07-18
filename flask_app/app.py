@@ -140,6 +140,8 @@ print(f"Fetching model from: {model_uri}")
 model = mlflow.pyfunc.load_model(model_uri)
 vectorizer = pickle.load(open('models/vectorizer.pkl', 'rb'))
 
+
+
 # Routes
 @app.route("/")
 def home():
