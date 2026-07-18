@@ -92,8 +92,3 @@ jobs:
 
       # - name: Deploy to EKS
       #   run: |
-<<<<<<< HEAD
-      #     kubectl apply -f deployment.yaml
-=======
-      #     kubectl apply -f deployment.yaml
->>>>>>> 8687444958c3620a5d812a63dba20b7180f04f78
