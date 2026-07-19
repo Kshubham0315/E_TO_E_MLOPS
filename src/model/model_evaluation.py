@@ -158,7 +158,8 @@ def main():
             # Log model
             mlflow.sklearn.log_model(
                 sk_model=clf,
-                artifact_path="models"
+                artifact_path="models",
+                serialization_format="cloudpickle"
             )
 
             save_model_info(
