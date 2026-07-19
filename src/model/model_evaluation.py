@@ -156,7 +156,7 @@ def main():
                     mlflow.log_param(param_name, param_value)
 
             # Log model
-            mlflow.sklearn.log_model(
+            model_info=mlflow.sklearn.log_model(
                 sk_model=clf,
                 artifact_path="models",
                 serialization_format="cloudpickle"
