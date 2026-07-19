@@ -156,9 +156,15 @@ def main():
                     mlflow.log_param(param_name, param_value)
 
             # Log model
-            model_info = mlflow.sklearn.log_model(
+            mlflow.sklearn.log_model(
                 sk_model=clf,
-                name="models"
+                artifact_path="models"
+            )
+
+            save_model_info(
+                run.info.run_id,
+                "models",
+                "reports/experiment_info.json"
             )
 
             # Save model information
