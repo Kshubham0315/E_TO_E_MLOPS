@@ -77,34 +77,6 @@ Grafana Dashboard
 
 ---
 
-# 📂 Project Structure
-
-```
-.
-├── artifact/
-├── data/
-├── flask_app/
-│   ├── app.py
-│   ├── templates/
-│   ├── static/
-│   └── models/
-├── src/
-│   ├── data_ingestion.py
-│   ├── data_preprocessing.py
-│   ├── feature_engineering.py
-│   ├── model_building.py
-│   ├── model_evaluation.py
-│   └── register_model.py
-├── tests/
-├── scripts/
-├── dvc.yaml
-├── params.yaml
-├── requirements.txt
-└── README.md
-```
-
----
-
 # ⚙ Features
 
 ✅ Automated NLP Pipeline
@@ -264,20 +236,6 @@ kubectl get pods
 kubectl get svc
 ```
 
----
-
-# 📸 Screenshots
-
-- MLflow Experiments
-- DagsHub
-- Flask UI
-- Docker
-- Kubernetes
-- AWS EKS
-- Prometheus
-- Grafana
-
----
 
 # 🎯 Learning Outcomes
 
@@ -308,19 +266,3 @@ kubectl get svc
 - Terraform
 - ArgoCD
 - Helm Charts
-
----
-
-## 👨‍💻 Author
-
-**Shubham Kumar**
-
-B.Tech CSE | KIET Ghaziabad
-
-Interested in
-
-- MLOps
-- Machine Learning
-- Cloud
-- DevOps
-- AI Engineering
