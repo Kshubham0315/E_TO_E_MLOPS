@@ -144,7 +144,7 @@ kubectl get svc
 kubectl get svc flask-app-service
 
 49. Try externa-ip:5000 directly on url or on terminal : curl http://external-ip:5000
-curl http://a6bf6255d5f61470c9782b8955c98271-1409247973.us-east-1.elb.amazonaws.com:5000
+curl http://ace625a6f9702472c9e35805cc44a29e-2039917974.us-east-1.elb.amazonaws.com:5000
 
 
 
@@ -179,7 +179,7 @@ global:
 scrape_configs:
   - job_name: "flask-app"
     static_configs:
-      - targets: ["a6bf6255d5f61470c9782b8955c98271-1409247973.us-east-1.elb.amazonaws.com:5000"]  # Replace with your app's External IP
+      - targets: ["ace625a6f9702472c9e35805cc44a29e-2039917974.us-east-1.elb.amazonaws.com:5000"]  # Replace with your app's External IP
 
 
 
@@ -219,7 +219,7 @@ sudo apt update && sudo apt upgrade -y
 
 66. Open Grafana web UI: http://<ec2-public-ip>:3000 (username/pass - admin)
 
-67. Add Prometheus as a Data Source: http://54.81.71.206/:9090
+67. Add Prometheus as a Data Source: http://98.82.119.245//:9090
     click - Save and Test | Get started with building dashboards.
 
 
